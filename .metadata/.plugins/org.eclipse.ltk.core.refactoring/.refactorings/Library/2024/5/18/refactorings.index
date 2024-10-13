@@ -1,0 +1,19 @@
+1714609229415	Rename resource 'deleteBookByPubyear.jsp'
+1714609286653	Rename resource 'deleteBookBybPubyear.jsp'
+1714637346801	Rename resource 'showMyReserveBook.jsp'
+1714639063054	Rename resource 'reserveLIst.jsp'
+1714639408854	Delete element
+1714639510786	Delete element
+1714700407325	Delete element
+1714712702502	Delete element
+1714712712417	Rename resource 'searchBookByBtitle.jsp'
+1714717930036	Delete element
+1714718280427	Delete element
+1714718362177	Rename resource 'Board'
+1714718585506	Delete element
+1714718590632	Delete element
+1714718700325	Rename resource 'board'
+1714718703739	Delete element
+1714718992440	Rename package 'board'
+1714719004941	Rename type 'BoardBean'
+1714719012219	Rename type 'BoardDao'

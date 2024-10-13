@@ -1,0 +1,224 @@
+-- 회원 테이블 생성
+drop sequence memseq ;
+
+create sequence memseq   
+increment by 1
+start with 1
+minvalue 0
+maxvalue 10000
+nocache;
+ 
+drop table members cascade constraints purge ;
+create table members(
+	no number primary key,
+	name varchar2(30) not null,
+	id varchar2(12) not null,
+	password varchar2(12),
+	rrn1 varchar2(10),
+	rrn2 varchar2(10),
+	email varchar2(20),
+	hp1 varchar2(10),
+	hp2 varchar2(10),
+	hp3 varchar2(20),
+	joindate varchar2(20) 				
+);
+
+insert into members(no, name, id, password, rrn1, rrn2) 
+values(memseq.nextval, '어드민', 'admin', '1234', '111111', '2222222') ;
+insert into members(no, name, id, password, rrn1, rrn2) 
+values(memseq.nextval, '홍길동', 'hong', '5678', '333333', '4444444') ;
+commit;
+
+
+col name for  a12
+col id for a12
+col password for a12
+col rrn1 for a10
+col rrn2 for a10
+select no, name, id, password, rrn1, rrn2 from members ;
+
+
+-- 카테고리 테이블
+drop sequence catseq ;
+drop table category purge ;
+
+create sequence catseq
+increment by 1
+start with 1
+minvalue 1
+maxvalue 10000
+nocache;
+
+
+create table category(
+	cnum 	number primary key,
+	code 	varchar2(20) not null,
+	cname 	varchar2(50) not null
+);
+
+
+-- 상품 테이블
+drop sequence catprod ;
+
+create sequence catprod 
+increment by 1
+start with 1
+minvalue 0
+maxvalue 10000
+nocache;
+
+drop table product cascade constraints purge ;
+create table product(
+	pnum 		int not null primary key,
+	pname 		varchar2(50) not null,
+	pcategory_fk  	varchar2(20) not null, -- 선택한 카테고리
+	pcompany 	varchar2(50),
+	pimage   		varchar2(30),
+	pqty   int default 0,
+	price   		int default 0,
+	pspec   		varchar2(12),
+	pcontents 	varchar2(300),
+	point   		int default 0,
+	pinputdate 	varchar2(10)
+);
+
+col pname for a12
+col pcompany for a12
+col pimage for a12
+col pcontents for a12
+select * from product  ;
+
+
+
+-- 매출 주문 테이블
+drop sequence orderseq ;
+
+create sequence orderseq 
+increment by 1
+start with 1
+minvalue 0
+maxvalue 10000
+nocache;
+ 
+ 
+-- orderId(주문 아이디) : 동일한 시간대에 주문한 내역은 동일한 주문 아이디를 가진다.
+drop table orders cascade constraints purge ;
+  
+create table orders(
+	orderId number, -- 주문번호(orderseq)
+	memno number, -- 회원번호
+	pnum number, -- 상품번호
+	qty number, -- 수량
+	amount number -- 전체가격
+);
+
+drop table board cascade constraints purge ;
+create table board(
+	num number not null primary key,
+	writer varchar2(10) not null,
+	email varchar2(10),
+	subject varchar2(20) not null,
+	passwd varchar2(12) not null,
+	reg_date date not null,
+	readcount int default 0,
+	ref number  default 0 not null,
+	re_step number default 0 not null,
+	re_level number default 0 not null,
+	content varchar2(50) not null,
+	ip varchar2(15)  not null
+);
+
+drop sequence board_seq ;
+create sequence board_seq 
+increment by 1
+start with 1
+minvalue 0
+maxvalue 10000
+nocache;
+
+시작하는 파일명 : main.jsp
+SQL> select no, name, id from members;
+ NO NAME       ID
+--- ---------- ----------
+  9 김연아     kim
+ 10 손흥민     son
+  7 어드민     admin
+  8 홍길동     hong
+  
+SQL> select pnum, pname from product;
+ PNUM PNAME
+---- ---------------
+   4 아비뇽
+   2 니스
+   3 파리
+   5 런던
+   6 에든버러
+   7 로마
+   8 피렌체
+   9 토스카나
+  10 돌로미티
+  11 바티칸
+  12 베네치아
+  13 서울
+  14 발리
+  15 싱가포르
+  16 카이로
+  17 뉴욕
+  25 메르주가
+  19 밴프
+  20 퀘벡
+  21 칸쿤
+  22 리우데자네이루
+  23 시드니
+  24 옐로나이프
+  26 오사카
+
+SQL> select * from orders;
+ORDERID MEMNO PNUM        QTY     AMOUNT
+------- ----- ---- ---------- ----------
+     12     8   23          1       5000
+     13     8   14          1       2000
+     14     8    6          1       4000
+     15     8   22          5      25000
+     16     9   17          1       5000
+     17     9   15          5      25000
+     18     9   25         10      10000
+     19    10    8         10      30000
+     20    10   20         10      50000
+     
+     
+select m.name mname, m.id mid, o.pnum, o.qty, o.amount from members m inner join orders o on m.no = o.memno;
+
+MNAME      MID        PNUM        QTY     AMOUNT
+---------- ---------- ---- ---------- ----------
+홍길동     hong         23          1       5000
+홍길동     hong         14          1       2000
+홍길동     hong          6          1       4000
+홍길동     hong         22          5      25000
+김연아     kim          17          1       5000
+김연아     kim          15          5      25000
+김연아     kim          25         10      10000
+손흥민     son           8         10      30000
+손흥민     son          20         10      50000
+
+select m.name mname, m.id mid, p.pname, o.qty, o.amount from (members m inner join orders o on m.no = o.memno) inner join product p on o.pnum = p.pnum;
+MNAME    MID     PNAME        QTY        AMOUNT
+------- -------- ------------ ------ ----------
+홍길동     hong     에든버러             1       4000
+손흥민     son      피렌체             10      30000
+홍길동     hong     발리               1       2000
+김연아     kim      싱가포르             5      25000
+김연아     kim      뉴욕               1       5000
+김연아     kim      메르주가            10      10000
+손흥민     son      퀘벡              10      50000
+홍길동     hong     리우데자네이루         5      25000
+홍길동     hong     시드니              1       5000
+
+select m.name mname, m.id mid, p.pname, o.qty, o.amount from (members m inner join orders o on m.no = o.memno) inner join product p on o.pnum = p.pnum where m.id = 'hong';
+
+MNAME    MID        PNAME            QTY     AMOUNT
+------- ---------- ------------- -------- ----------
+홍길동     hong       에든버러               1       4000
+홍길동     hong       발리                 1       2000
+홍길동     hong       리우데자네이루           5      25000
+홍길동     hong       시드니                1       5000

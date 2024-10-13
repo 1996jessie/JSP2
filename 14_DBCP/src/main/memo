@@ -1,0 +1,11 @@
+drop table Tdbcp purge ;
+
+create table Tdbcp(
+	username varchar2(15) not null,
+	email varchar2(30) not null
+);
+
+col username for a10
+col email for a15
+
+select * from tdbcp;

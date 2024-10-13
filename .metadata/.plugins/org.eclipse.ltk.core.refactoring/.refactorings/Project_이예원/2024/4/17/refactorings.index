@@ -1,0 +1,76 @@
+1713764167030	Delete element
+1713764232903	Delete element
+1713765450646	Delete element
+1713765561939	Delete element
+1713766110976	Delete element
+1713766139748	Rename type 'boardBean'
+1713766144003	Rename type 'boardDao'
+1713766155232	Rename type 'BoardDao'
+1713766162677	Copy compilation units
+1713766167574	Delete element
+1713766176842	Rename type 'BoardBean'
+1713766181584	Rename type 'BoardDao'
+1713766185250	Copy compilation units
+1713766186203	Copy compilation units
+1713766186824	Copy compilation units
+1713766187387	Copy compilation units
+1713766192224	Rename type 'BookBean'
+1713766197233	Rename type 'BookDao'
+1713766202461	Rename type 'BookBean'
+1713766207552	Rename type 'BookDao'
+1713766212172	Rename type 'BookBean'
+1713766215886	Rename type 'BookDao'
+1713766228896	Rename type 'BookBean'
+1713766233959	Rename type 'BookDao'
+1713766917154	Delete elements
+1713767157153	Rename resource 'Top.jsp'
+1713831585330	Copy folders
+1713831607430	Copy folder
+1713831615839	Copy file
+1713831629687	Copy files
+1713832966863	Delete elements
+1713833294874	Delete element
+1713834057122	Delete element
+1713834585090	Delete element
+1713836545910	Rename resource 'insertCategory_proc.jsp'
+1713836553433	Rename resource 'updateCategory_proc.jsp'
+1713847277470	Rename resource 'script.js'
+1713848404869	Delete element
+1713857491805	Delete element
+1713859017803	Rename resource 'ShowMember.jsp'
+1713859222905	Rename resource 'AccountManagement'
+1713859458866	Rename resource 'deleteAccount.jsp'
+1713859482589	Rename resource 'insertAccount.jsp'
+1713859491233	Rename resource 'insertAccountProc.jsp'
+1713859499616	Rename resource 'updateAccount.jsp'
+1713859507219	Rename resource 'updateAccountProc.jsp'
+1713921946053	Rename resource 'checkCanIInsert.jsp'
+1713921954016	Rename resource 'checkCanIInsertProc.jsp'
+1713923981153	Rename resource 'canIInsertCheck.jsp'
+1713924001850	Rename resource 'canIInsertCheckProc.jsp'
+1713924067758	Rename resource 'insertBookCheck.jsp'
+1713924084261	Rename resource 'canInsertBookCheck.jsp'
+1713924108558	Rename resource 'deleteMember.jsp'
+1713924144530	Rename resource 'deleteMemberProc.jsp'
+1713925127556	Delete element
+1713925133566	Delete element
+1713925736102	Rename resource 'updateMyAccountProc.jsp'
+1713927871967	Move 'index.html' to 'resources'
+1713927967749	Move 'index.html' to 'webapp'
+1713928005788	Delete element
+1713928499890	Delete element
+1713928611536	Delete element
+1713928630000	Delete element
+1713928970483	Move 'top.jsp' to 'resources'
+1713929253021	Delete element
+1713929271493	Rename resource '새ㅔ.jsp'
+1713937680917	Rename resource 'LoanBook'
+1713937785201	Rename resource 'showMyReservation.jsp'
+1713937911046	Rename resource 'Login.jsp'
+1713937988076	Move 2 resources to 'login'
+1713941123551	Rename resource 'SearchBookNew.jsp'
+1713945451207	Rename resource 'searchBook.jsp'
+1713945526138	Rename resource 'searchBookByTitle.jsp'
+1714009421559	Copy file
+1714010564011	Delete element
+1714010574455	Rename resource 'top2.jsp'

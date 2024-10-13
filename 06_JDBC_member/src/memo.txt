@@ -1,0 +1,28 @@
+[JDBC 프로그래밍 단계]
+0.jar 파일 추가
+(C:\Oracle\product\12.2.0\dbhome_1\jdbc\lib=>~~~lib폴더)
+1.드라이버 로드 Class.forName("");
+2.Connection 드라이버 연결(계정에 접속) DriverManager.getConnection();
+3.sql문 분석 conn.prepareStatement();
+	3_1. ? 에 값 채우기
+4.sql문 실행 insert,update,delete:executeUpdate(); select:executeQuery()
+5.자원반납,접속끊기 : close()
+
+drop table member;
+
+create table member(
+	id varchar2(10) primary key, -- not null, unique
+	passwd varchar2(10),
+	name varchar2(10) not null,
+	reg_date date default sysdate
+);
+
+insert into member(id,passwd,name,reg_date)
+values('kim','1234','김연아','2000-3-3');
+
+insert into member
+values('hong','9876','홍길동','2024-3-20');
+
+commit;
+
+select * from member;
